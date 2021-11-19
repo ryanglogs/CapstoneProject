@@ -1,0 +1,119 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>Social Media Webscraper</title>
+	<style>
+		body{
+			background-color: rgba(181, 173, 166, 0.2);
+		}
+		.controls{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding-top: 40px;
+			padding-bottom: 40px;
+		}
+		.query{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.submitButton{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		h2{
+			text-align: center;
+			padding-bottom: 40px;
+			font-family: Georgia, serif ;
+		}
+		.main{
+			background-color: rgb(96, 142, 181);
+			margin-left: auto;
+			margin-right: auto;
+			word-wrap: break-word;
+			border-color: black;
+			border-style: double;
+			padding: 0px;
+			box-shadow: 10px, 10px, 5px, grey;
+			width: 60%;
+			font-family: Garamond, serif;
+		}
+		
+	</style>
+	
+</head>
+<body>
+<script>
+	function valthisform(){
+		let checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+		if(checkboxes.length==0){
+			alert ("Please check at least one social media to search");
+			return false;
+		}else{
+			return true;
+		}
+
+	}
+	function isNumber(){
+		var numResults = Number(document.getElementById("numResults").value);
+		if(Number.isInteger(numResults)){
+			
+		}else{
+			alert("Number of results must be a whole number")
+		}
+	}
+</script>
+
+
+<div class="main">
+	<h2>Social Media Webscraper</h2>
+
+	<form action="index.py" method = "POST"  onsubmit="return valthisform()">
+
+		<div class = "query">
+			<input type="text" class="query" id="query" name="query" value="" placeholder="Input Search" required>&#160&#160&#160&#160
+			<input type="text" class="query" id="numResults" name="numresults" value="" placeholder="Number of results" onchange="isNumber()" required>
+		</div>
+		<div class="controls">
+			<input type="checkbox" id="twitter" name="twitter" value="on" checked>
+			<label for="twitter">Twitter &#160 &#160 </label><br>
+			  
+			<input type="checkbox" id="reddit" name="reddit" value="on">
+			<label for="reddit">Reddit</label>
+			  
+			<label for="sortBy">&#160 Sort by:</label>
+			<select name="sortBy" id="redditSort">
+				<option value="new">New</option>
+				<option value="hot">Hot</option>
+				<option value="rising">Rising</option>
+				<option value="top">Top</option>
+			</select>
+			<br>
+			
+			<label for="youtube"> &#160 &#160 &#160 </label>
+			<input type="checkbox" id="youtube" name="youtube" value="on">
+			<label for="youtube">Youtube</label><br><br>
+			
+			<label for="spotify"> &#160 &#160 &#160 </label>
+			<input type="checkbox" id="spotify" name="spotify" value="on">
+			<label for="spotify">Spotify</label><br><br>
+			
+			
+			
+		</div>
+		<div class="controls">
+			<input type="checkbox" id="googlemaps" name="googlemaps" value="on">
+			<label for="googlemaps">Google Maps &#160 &#160 &#160 </label><br>
+			<input type="text" class="query" id="businessquery" name="businessquery" value="" placeholder="Input Business Type">&#160&#160&#160
+			<input type="text" class="query" id="locationquery" name="locationquery" value="" placeholder="Input Location">&#160&#160&#160
+		</div>
+		<div class="submitButton">
+			<input type="submit" value="Submit"><br>
+		</div>
+		<p><br></p>
+	</form> 
+</div>
+</body>
+</html> 
